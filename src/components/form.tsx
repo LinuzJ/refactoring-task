@@ -1,6 +1,6 @@
 import * as React from "react";
 import Button from "./button";
-import styles from "./form.module.css";
+import styles from "../styles/form.module.css";
 
 interface Props {
   onSubmit: (payload: {

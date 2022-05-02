@@ -9,7 +9,7 @@ import Form from "./components/form";
 import logo from "./images/droppe-logo.png";
 import img1 from "./images/img1.png";
 import img2 from "./images/img2.png";
-import styles from "./App.module.css";
+import styles from "./styles/App.module.css";
 import { ProductData } from "./types";
 
 const ShopApp: React.FC = () => {

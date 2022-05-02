@@ -1,7 +1,7 @@
 import * as React from "react";
 import { FaStar } from "react-icons/fa";
 import { ProductData } from "../types";
-import styles from "./product.module.css";
+import styles from "../styles/product.module.css";
 
 interface Props {
   product: ProductData;
@@ -10,16 +10,9 @@ interface Props {
 }
 
 const Product: React.FC<Props> = ({ product, setFav, numFav }) => {
-  const {
-    product: productClass,
-    productBody,
-    actionBarItem,
-    actionBarItemLabel,
-  } = styles;
-
   return (
     <span
-      className={productClass}
+      className={styles.product}
       style={{
         display: "inline-block",
         overflowWrap: "break-word",
@@ -27,12 +20,7 @@ const Product: React.FC<Props> = ({ product, setFav, numFav }) => {
         clear: "both",
       }}
     >
-      <span
-        className={styles["product-title"]}
-        style={{ overflowWrap: "break-word" }}
-      >
-        {product.title}
-      </span>
+      <span className={styles.productTitle}>{product.title}</span>
 
       <p>
         <strong>
@@ -44,7 +32,7 @@ const Product: React.FC<Props> = ({ product, setFav, numFav }) => {
         <b>Price: ${+product.price}</b>
       </p>
 
-      <p className={productBody}>
+      <p className={styles.productBody}>
         <span>
           <b>Description:</b>
         </span>
@@ -53,11 +41,13 @@ const Product: React.FC<Props> = ({ product, setFav, numFav }) => {
       </p>
 
       <span
-        className={styles["action_bar"]}
+        className={styles.actionBar}
         style={{ display: "table", width: "100%" }}
       >
         <span
-          className={`${actionBarItem} ${product.isFavorite ? "active" : ""}`}
+          className={`${styles.actionBarItem} ${
+            product.isFavorite ? "active" : ""
+          }`}
           role="button"
           onClick={() => {
             if (!product.isFavorite == null || product.isFavorite) {
@@ -70,7 +60,7 @@ const Product: React.FC<Props> = ({ product, setFav, numFav }) => {
           }}
         >
           <FaStar />{" "}
-          <span className={actionBarItemLabel}>
+          <span className={styles.actionBarItemLabel}>
             {!!!!product.isFavorite
               ? "Remove from favorites"
               : "Add to favorites"}

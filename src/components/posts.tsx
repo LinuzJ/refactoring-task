@@ -1,7 +1,5 @@
 import * as React from "react";
-import lodash from "lodash";
-
-import { Product } from "./product";
+import Product from "./product";
 import { ProductData } from "../types";
 
 interface Props {
@@ -16,7 +14,7 @@ const Posts: React.FC<Props> = ({ products, onFav }) => {
         .slice(0)
         .reverse()
         .map((product, index) => (
-          <Product key={index} index={index} product={product} onFav={onFav} />
+          <Product key={index} product={product} onFav={onFav} />
         ))}
     </>
   );

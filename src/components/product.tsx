@@ -3,17 +3,19 @@ import { FaStar } from "react-icons/fa";
 import { ProductData } from "../types";
 import styles from "./product.module.css";
 
-export const Product: React.FC<{
-  index: number;
+interface Props {
   product: ProductData;
   onFav: (title: string) => void;
-}> = ({ product, onFav }) => {
+}
+
+const Product: React.FC<Props> = ({ product, onFav }) => {
   const {
     product: productClass,
     productBody,
     actionBarItem,
     actionBarItemLabel,
   } = styles;
+
   // Problem: Now product title can be too long, I just put overflowX as fix now
   return (
     <span
@@ -69,3 +71,5 @@ export const Product: React.FC<{
     </span>
   );
 };
+
+export default Product;

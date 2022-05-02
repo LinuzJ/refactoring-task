@@ -2,15 +2,15 @@ import * as React from "react";
 import { Button } from "./button";
 import styles from "./form.module.css";
 
-type Props = {
+interface Props {
   onSubmit: (payload: {
     title: string;
     description: string;
     price: string;
   }) => void;
-};
+}
 
-export const Form: React.FC<Props> = ({ onSubmit }) => {
+const Form: React.FC<Props> = ({ onSubmit }) => {
   let formRef = React.useRef<HTMLFormElement>(null);
   let titleRef = React.useRef<HTMLInputElement>(null);
   let priceRef = React.useRef<HTMLInputElement>(null);
@@ -75,3 +75,5 @@ export const Form: React.FC<Props> = ({ onSubmit }) => {
     </form>
   );
 };
+
+export default Form;

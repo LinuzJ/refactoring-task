@@ -5,7 +5,7 @@ import Modal from "react-modal";
 import { FaTimes } from "react-icons/fa";
 import { Button } from "./components/button";
 import Posts from "./components/posts";
-import { Form } from "./components/form";
+import Form from "./components/form";
 import logo from "./images/droppe-logo.png";
 import img1 from "./images/img1.png";
 import img2 from "./images/img2.png";

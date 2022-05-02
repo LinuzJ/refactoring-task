@@ -12,9 +12,12 @@ interface Props {
 const Posts: React.FC<Props> = ({ products, onFav }) => {
   return (
     <>
-      {products.map((product, index) => (
-        <Product key={index} index={index} product={product} onFav={onFav} />
-      ))}
+      {products
+        .slice(0)
+        .reverse()
+        .map((product, index) => (
+          <Product key={index} index={index} product={product} onFav={onFav} />
+        ))}
     </>
   );
 };

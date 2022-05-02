@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Modal from "react-modal";
 import "./index.css";
-import { ShopApp } from "./App";
+import ShopApp from "./App";
 import * as serviceWorker from "./utils/serviceWorker";
 
 Modal.setAppElement("#root");

@@ -4,17 +4,23 @@ import { ProductData } from "../types";
 
 interface Props {
   products: ProductData[];
-  onFav: (title: string) => void;
+  setFav: (numFav: number) => void;
+  numFav: number;
 }
 
-const Posts: React.FC<Props> = ({ products, onFav }) => {
+const Posts: React.FC<Props> = ({ products, setFav, numFav }) => {
   return (
     <>
       {products
         .slice(0)
         .reverse()
         .map((product, index) => (
-          <Product key={index} product={product} onFav={onFav} />
+          <Product
+            key={index}
+            product={product}
+            setFav={setFav}
+            numFav={numFav}
+          />
         ))}
     </>
   );

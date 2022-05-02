@@ -5,10 +5,11 @@ import styles from "./product.module.css";
 
 interface Props {
   product: ProductData;
-  onFav: (title: string) => void;
+  setFav: (numFav: number) => void;
+  numFav: number;
 }
 
-const Product: React.FC<Props> = ({ product, onFav }) => {
+const Product: React.FC<Props> = ({ product, setFav, numFav }) => {
   const {
     product: productClass,
     productBody,
@@ -57,7 +58,13 @@ const Product: React.FC<Props> = ({ product, onFav }) => {
           className={`${actionBarItem} ${product.isFavorite ? "active" : ""}`}
           role="button"
           onClick={() => {
-            onFav(product.title);
+            if (!product.isFavorite == null || product.isFavorite) {
+              setFav(numFav - 1);
+              product.isFavorite = false;
+            } else {
+              setFav(numFav + 1);
+              product.isFavorite = true;
+            }
           }}
         >
           <FaStar />{" "}

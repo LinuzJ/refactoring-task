@@ -3,17 +3,18 @@ import lodash from "lodash";
 import Modal from "react-modal";
 import { FaTimes } from "react-icons/fa";
 import { Button } from "./components/button";
-import Posts from "./components/posts-list";
+import Posts from "./components/posts";
 import { Form } from "./components/form";
 import logo from "./images/droppe-logo.png";
 import img1 from "./images/img1.png";
 import img2 from "./images/img2.png";
 import styles from "./App.module.css";
+import { ProductData } from "./types";
 
 export class ShopApp extends React.Component<
   {},
   {
-    products: any[];
+    products: ProductData[];
     isOpen: boolean;
     isShowingMessage: boolean;
     message: string;
@@ -43,6 +44,7 @@ export class ShopApp extends React.Component<
         let data = [];
 
         for (let i = 0; i < rawData.length; i++) {
+          console.log(rawData[i]);
           let updatedProd = rawData[i];
           data.push(updatedProd);
         }
@@ -82,7 +84,7 @@ export class ShopApp extends React.Component<
     updated.push({
       title: payload.title,
       description: payload.description,
-      price: payload.price,
+      price: Number(payload.price),
     });
 
     this.setState({

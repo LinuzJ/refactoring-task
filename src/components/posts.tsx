@@ -3,12 +3,12 @@ import lodash from "lodash";
 
 import { Product } from "./product";
 
-interface IPostsProps {
+interface Props {
   products: any;
   onFav: (title: string) => void;
 }
 
-export default class Posts extends React.Component<IPostsProps> {
+export default class Posts extends React.Component<Props> {
   constructor(props: any) {
     super(props);
   }

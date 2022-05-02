@@ -2,23 +2,21 @@ import * as React from "react";
 import lodash from "lodash";
 
 import { Product } from "./product";
+import { ProductData } from "../types";
 
 interface Props {
-  products: any;
+  products: ProductData[];
   onFav: (title: string) => void;
 }
 
-export default class Posts extends React.Component<Props> {
-  constructor(props: any) {
-    super(props);
-  }
-  render() {
-    let productsarr = [];
-    for (const [i, p] of this.props.products.entries()) {
-      productsarr.push(
-        <Product key={i} index={i} product={p} onFav={this.props.onFav} />
-      );
-    }
-    return <div>{lodash.reverse(productsarr)}</div>;
-  }
-}
+const Posts: React.FC<Props> = ({ products, onFav }) => {
+  return (
+    <>
+      {products.map((product, index) => (
+        <Product key={index} index={index} product={product} onFav={onFav} />
+      ))}
+    </>
+  );
+};
+
+export default Posts;

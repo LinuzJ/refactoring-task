@@ -1,16 +1,11 @@
 import * as React from "react";
 import { FaStar } from "react-icons/fa";
+import { ProductData } from "../types";
 import styles from "./product.module.css";
 
 export const Product: React.FC<{
   index: number;
-  product: {
-    title: string;
-    description: string;
-    price: number;
-    isFavorite: boolean;
-    rating: { rate: number; count: number };
-  };
+  product: ProductData;
   onFav: (title: string) => void;
 }> = ({ product, onFav }) => {
   const {
